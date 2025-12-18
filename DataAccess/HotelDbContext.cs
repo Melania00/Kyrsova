@@ -74,7 +74,7 @@ public class HotelDbContext : DbContext
                 Id = 1,
                 // Cast the int to your Enum type
                 Category = (TestLab.Models.Category)0,
-                Description = "Standard Single Room",
+                Description = "Economy Single Room",
                 Capacity = 1,
                 PricePerNight = 85.00m,
                 ImageUrl = "https://thumbs.dreamstime.com/b/hotel-room-one-21956245.jpg"
@@ -83,7 +83,7 @@ public class HotelDbContext : DbContext
             {
                 Id = 2,
                 Category = (TestLab.Models.Category)1,
-                Description = "Deluxe Double Room",
+                Description = "Standard Double Room",
                 Capacity = 2,
                 PricePerNight = 150.00m,
                 ImageUrl = "https://s7d9.scene7.com/is/image/kohlerhospitality/aag27393_rgb?wid=1440&wid=1440"
@@ -92,7 +92,7 @@ public class HotelDbContext : DbContext
             {
                 Id = 3,
                 Category = (TestLab.Models.Category)2,
-                Description = "Presidential Suite. One master bedroom and one with 2 single beds.",
+                Description = "Deluxe. One master bedroom and one with 2 single beds.",
                 Capacity = 4,
                 PricePerNight = 500.00m,
                 ImageUrl = "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bHV4dXJ5JTIwaG90ZWwlMjByb29tfGVufDB8fDB8fHww"
@@ -101,7 +101,7 @@ public class HotelDbContext : DbContext
             {
                 Id = 4,
                 Category = (TestLab.Models.Category)0,
-                Description = "Standart Double Room",
+                Description = "Economy Double Room",
                 Capacity = 2,
                 PricePerNight = 130m,
                 ImageUrl = "https://thumbs.dreamstime.com/b/hotel-standard-room-dual-bed-31076780.jpg"
@@ -110,7 +110,7 @@ public class HotelDbContext : DbContext
             {
                 Id = 5,
                 Category = (TestLab.Models.Category)1,
-                Description = "Deluxe Family Room",
+                Description = "Standard Family Room",
                 Capacity = 4,
                 PricePerNight = 250m,
                 ImageUrl = "https://images.trvl-media.com/lodging/3000000/2250000/2240600/2240552/c6baf43f.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
@@ -119,7 +119,7 @@ public class HotelDbContext : DbContext
             {
                 Id = 6,
                 Category = (TestLab.Models.Category)0,
-                Description = "Standart Family Room",
+                Description = "Economy Family Room",
                 Capacity = 4,
                 PricePerNight = 200m,
                 ImageUrl = "https://media-cdn.tripadvisor.com/media/photo-s/06/0e/94/47/family-room-4-single.jpg"
