@@ -37,6 +37,10 @@ namespace TestLab
                 app.UseSwaggerUI();
             }
 
+            app.UseCors("AllowReact");
+
+            app.UseRouting();
+
             app.UseHttpsRedirection();
 
             app.UseAuthorization();

@@ -22,16 +22,30 @@ public class RoomController : ControllerBase
     // Gets rooms with advanced filtering
     [HttpGet]
     public async Task<ActionResult<IEnumerable<RoomDto>>> GetRooms(
-        [FromQuery] Category? category,
-        [FromQuery] int? minCapacity,
-        [FromQuery] decimal? maxPrice)
+      [FromQuery] Category? category,
+      [FromQuery] int? minCapacity,
+      [FromQuery] decimal? maxPrice,
+      [FromQuery] DateTime? startDate,
+      [FromQuery] DateTime? endDate)
     {
-        // Start with a queryable object including amenities
+        // 1. Start with the base query
         var query = _context.Rooms
             .Include(r => r.Amenities)
             .AsQueryable();
 
-        // Apply filters conditionally
+        // 2. Date Filtering Logic (Crucial Update)
+        if (startDate.HasValue && endDate.HasValue)
+        {
+            // Find IDs of rooms that HAVE a booking overlapping with the selected dates
+            var unavailableRoomIds = _context.Bookings
+                .Where(b => (startDate < b.CheckOutDate) && (endDate > b.CheckInDate))
+                .Select(b => b.RoomId);
+
+            // Filter the query to only include rooms NOT in that list
+            query = query.Where(r => !unavailableRoomIds.Contains(r.Id));
+        }
+
+        // 3. Apply existing filters
         if (category.HasValue)
         {
             query = query.Where(r => r.Category == category.Value);
@@ -47,7 +61,7 @@ public class RoomController : ControllerBase
             query = query.Where(r => r.PricePerNight <= maxPrice.Value);
         }
 
-        // Project the final result to RoomDto to avoid sending database models to the client
+        // 4. Project to DTO
         var rooms = await query.Select(r => new RoomDto
         {
             Id = r.Id,
@@ -58,7 +72,7 @@ public class RoomController : ControllerBase
             ImageUrl = r.ImageUrl,
             Amenities = r.Amenities.Select(a => new AmenityDto { Id = a.Id, Name = a.Name }).ToList()
         })
-            .ToListAsync();
+        .ToListAsync();
 
         return Ok(rooms);
     }
