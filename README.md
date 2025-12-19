@@ -21,8 +21,7 @@ ExtraService (Додаткова послуга): SPA, харчування, т�
 Report (Звіт): Сутність для збору статистичних даних.
 
 2. Діаграма прецедентів (Use Case Diagram)
-<img width="1125" height="1673" alt="image" src="https://github.com/user-attachments/assets/3a66c79c-74f3-4b62-80eb-c7627bd1d2d2" />
-
+<img width="980" height="1597" alt="image" src="https://github.com/user-attachments/assets/96116212-19fc-4dd9-9ea0-2e1f50267866" />
 
 4. UML-діаграма класів
 <img width="1711" height="1655" alt="image" src="https://github.com/user-attachments/assets/e8f76a4e-58c0-48c5-9149-54095acd560c" />
